@@ -1,11 +1,11 @@
 {
   "extensionDescription": {
     "description": "Extension description",
-    "message": "Chrome extension boilerplate developed with Vite, React and Typescript"
+    "message": "Debug your Google Analytics' events in realtime right at your browser"
   },
   "extensionName": {
     "description": "Extension name",
-    "message": "Chrome extension boilerplate"
+    "message": "Tsumos Debugger"
   },
   "toggleTheme": {
     "message": "Toggle theme"
