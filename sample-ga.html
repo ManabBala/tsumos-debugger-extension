@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>GA Button Test with Immediate Events</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f4;
+			text-align: center;
+			padding: 20px;
+		}
+
+		h1 {
+			color: #333;
+			margin-bottom: 30px;
+		}
+
+		button {
+			background-color: #007bff;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+			margin: 10px;
+			transition: background-color 0.3s ease, transform 0.2s ease;
+		}
+
+		button:hover {
+			background-color: #0056b3;
+			transform: scale(1.05);
+		}
+
+		button:active {
+			background-color: #003f7f;
+			transform: scale(1);
+		}
+	</style>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZN26LTSWDQ"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+		gtag('config', 'G-ZN26LTSWDQ');
+
+		// Recommended Events with immediate dispatch
+		function trackViewItem(itemName) {
+			gtag('event', 'view_item', {
+				'item_name': itemName,
+				'currency': 'USD',
+				'value': 10.00,
+				'transport_type': 'beacon',  // Ensures the event is sent immediately
+				'send_to': 'G-ZN26LTSWDQ'
+			});
+		}
+
+		function trackSelectContent(contentType, contentId) {
+			gtag('event', 'select_content', {
+				'content_type': contentType,
+				'content_id': contentId,
+				'transport_type': 'beacon',
+				'send_to': 'G-ZN26LTSWDQ'
+			});
+		}
+
+		function trackSignUp(method) {
+			gtag('event', 'sign_up', {
+				'method': method,
+				'transport_type': 'beacon',
+				'send_to': 'G-ZN26LTSWDQ'
+			});
+		}
+
+		function trackPurchase(transactionId, value, currency) {
+			gtag('event', 'purchase', {
+				'transaction_id': transactionId,
+				'value': value,
+				'currency': currency,
+				'transport_type': 'beacon',
+				'send_to': 'G-ZN26LTSWDQ'
+			});
+		}
+
+		function trackButton(buttonName) {
+			gtag('event', 'click', {
+				'event_category': 'button',
+				'event_label': buttonName,
+				'transport_type': 'beacon',
+				'send_to': 'G-ZN26LTSWDQ'
+			});
+		}
+	</script>
+</head>
+
+<body>
+	<h1>Google Analytics Event Test with Immediate Dispatch</h1>
+
+	<!-- Button tracking for view_item event -->
+	<button onclick="trackViewItem('Sample Product')">View Item: Sample Product</button>
+
+	<!-- Button tracking for select_content event -->
+	<button onclick="trackSelectContent('video', 'vid_123')">Select Content: Video</button>
+
+	<!-- Button tracking for sign_up event -->
+	<button onclick="trackSignUp('Email')">Sign Up via Email</button>
+
+	<!-- Button tracking for purchase event -->
+	<button onclick="trackPurchase('TX12345', 29.99, 'USD')">Track Purchase</button>
+
+	<!-- Basic button click event -->
+	<button onclick="trackButton('Button 1')">Button 1</button>
+	<button onclick="trackButton('Button 2')">Button 2</button>
+</body>
+
+</html>
